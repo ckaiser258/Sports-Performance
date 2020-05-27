@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Coach Sports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Coach</th>
+      <th>Sport</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coach_sports.each do |coach_sport| %>
+      <tr>
+        <td><%= coach_sport.coach_id %></td>
+        <td><%= coach_sport.sport_id %></td>
+        <td><%= link_to 'Show', coach_sport %></td>
+        <td><%= link_to 'Edit', edit_coach_sport_path(coach_sport) %></td>
+        <td><%= link_to 'Destroy', coach_sport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coach Sport', new_coach_sport_path %>
