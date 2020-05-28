@@ -1,26 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h1 style="margin-top: 50px; margin-left: 50px;">COACH</h1>
+
+<p style="margin-left: 50px;">
   <strong>Name:</strong>
   <%= @coach.name %>
 </p>
 
-<p>
-  <strong>Bio:</strong>
+<p style="margin-left: 50px; margin-right: 50px;">
+  <strong>Bio: </strong>
   <%= @coach.bio %>
 </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @coach.email %>
+<p style="margin-left: 50px;">
+  <strong>Email: </strong>
+  <%= mail_to @coach.email %>
+</p>
+
+<p style="margin-left: 50px;">
+  <strong>Programs: </strong>
+  <% @coach.programs.each do |p| %>
+    <%= link_to p.title, program_path(p) %><br>
+  <% end %>
 </p>
 
 <% if current_user && current_user.id == params[:id].to_i && check_coach %>
-<%= current_user.athletes.each do |athlete| %>
-  <%= athlete.name %>
-  <%= athlete.email %>
+  <%= current_user.athletes.each do |athlete| %>
+    <%= athlete.name %>
+    <%= athlete.email %>
   <%end%>
 <% end %>
 
+<br/>
+<div style="margin-left: 50px;">
 <%= link_to 'Edit', edit_coach_path(@coach) %> |
 <%= link_to 'Back', coaches_path %>
+</div>
