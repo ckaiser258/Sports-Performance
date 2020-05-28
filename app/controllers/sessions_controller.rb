@@ -5,21 +5,20 @@ class SessionsController < ApplicationController
 
     def create
         if params[:session][:a_c] == 'coach'
-            user = Coach.find_by(email: params[:email])
-            user.try(:authenticate, params[:password])
+            @user = Coach.find_by(email: params[:email])
+            if @user.try(:authenticate, params[:password])
+                redirect_to coach_path(@user.id) #need to figure out how to make this redirect to a list of their athletes
+            else
+                flash[:errors] = @user.errors.full_messages 
+                redirect_to sessions_new_path
+            end
         else
-            user = Athlete.find_by(email: params[:email])
-            user.try(:authenticate, params[:password])
-        end
-
-        return redirect_to(controller: 'sessions', action: 'new') unless user
-
-        if params[:email]
-            session[:coach_id] = user.id
-            redirect_to coach_path #may need to edit to show THEIR athletes
-        else
-            session[:athlete_id] = athlete.id
-            redirect_to coach_path #figure out how to change to their coach's path
+            @user = Athlete.find_by(email: params[:email])
+            if @user.try(:authenticate, params[:password])
+                redirect_to coach_path(@user.coach_id)
+            else flash[:errors] = @user.errors.full_messages 
+                redirect_to sessions_new_path
+            end
         end
     end
 

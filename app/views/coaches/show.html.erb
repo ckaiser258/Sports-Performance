@@ -24,8 +24,16 @@
   <% end %>
 </p>
 
+<% if current_user && current_user.id == params[:id].to_i && check_coach %>
+<%= current_user.athletes.each do |athlete| %>
+  <%= athlete.name %>
+  <%= athlete.email %>
+  <%end%>
+<% end %>
+
 <br/>
 <div style="margin-left: 50px;">
-  <%= link_to 'Edit', edit_coach_path(@coach) %> |
-  <%= link_to 'Back', coaches_path %>
+<%= link_to 'Edit', edit_coach_path(@coach) %> |
+<%= link_to 'Back', coaches_path %>
 </div>
+
