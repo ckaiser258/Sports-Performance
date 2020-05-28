@@ -1,5 +1,6 @@
 class CoachesController < ApplicationController
   before_action :set_coach, only: [:show, :edit, :update, :destroy]
+  helper_method :check_coach
 
   # GET /coaches
   # GET /coaches.json
@@ -60,6 +61,10 @@ class CoachesController < ApplicationController
       format.html { redirect_to coaches_url, notice: 'Coach was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def check_coach
+    current_user.class == Coach
   end
 
   private
