@@ -1,5 +1,8 @@
 class Athlete < ApplicationRecord
   has_secure_password
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
 
   # validates :coach_id, length: { minimum: 1 },allow_nil: true
   # validates :program_id, length: { minimum: 1 },allow_nil: true

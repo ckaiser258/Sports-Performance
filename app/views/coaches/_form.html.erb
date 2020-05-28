@@ -10,23 +10,33 @@
       </ul>
     </div>
   <% end %>
+  <%end%>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<%= form_for @coach, url: :coaches_create do |f|%>
+    <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </p>
 
-  <div class="field">
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
-  </div>
+    <p>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+    </p>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+    <p>
+        <%= f.label :bio %>
+        <%= f.text_area :bio %>
+    </p>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </p>
+
+    <p>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+    </p>
+
+    <p> <%= f.button "Submit"%> </p>
+  <%end%>

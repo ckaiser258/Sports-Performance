@@ -35,6 +35,7 @@ class CoachesController < ApplicationController
         format.json { render json: @coach.errors, status: :unprocessable_entity }
       end
     end
+    session[:coaches_id] = @coach.id
   end
 
   # PATCH/PUT /coaches/1
@@ -69,6 +70,6 @@ class CoachesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def coach_params
-      params.require(:coach).permit(:name, :bio, :email)
+      params.require(:coach).permit(:name, :bio, :email, :password, :password_confirmation)
     end
 end
