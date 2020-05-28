@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_05_28_170007) do
 
+
   create_table "athlete_sports", force: :cascade do |t|
     t.integer "athlete_id", null: false
     t.integer "sport_id", null: false
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_170007) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+
     t.index ["coach_id"], name: "index_athletes_on_coach_id"
     t.index ["program_id"], name: "index_athletes_on_program_id"
   end
