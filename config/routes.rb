@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'applicants/new'
-  post 'applicants/create'
+  get 'athletes/new'
+  post 'athletes/create'
+  get 'coaches/new'
+  post 'coaches/create'
   get "sessions/new"
   post "sessions/create"
   post 'sessions/destroy'

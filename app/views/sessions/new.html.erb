@@ -1,22 +1,18 @@
-<h1>Athlete Login</h1>
+<h1>Sign Up or Login</h1>
 
 <%if flash[:login_error] %>
     <p><%= flash[:login_error] %> </p>
 <%end%>
 
-<%= form_for :session, url: :sessions_create do |f| %>
+<%= form_tag action: "create", method: :post %>
+<%= label_tag :email %>
+<%= text_field_tag :email %>
 
-<p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-</p>
+<%= label_tag :password%>
+<%= text_field_tag :password%>
 
-<p>
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-</p>
+<%= collection_select :session, :a_c, ['athlete', 'coach'], :to_s, :to_s%>
 
-<p>
-    <%= f.button "Log In" %>
-</p>
-<%end%>
+<%= submit_tag "log in" %><br>
+Or <%= link_to(controller: 'athletes', action: 'new') {'Athlete sign up'} %>
+<%= link_to(controller: 'coaches', action: 'new') {'Coach sign up'} %>

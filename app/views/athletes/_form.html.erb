@@ -10,33 +10,33 @@
       </ul>
     </div>
   <% end %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<%= form_for @athlete, url: :athletes_create do |f|%>
+    <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </p>
 
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.text_field :age %>
-  </div>
+    <p>
+        <%= f.label :age %>
+        <%= f.number_field :age %>
+    </p>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
- <%#conditional rendering below %>
-  <div class="field">
-    <%= form.label :coach_id %>
-    <%= form.text_field :coach_id %>
-  </div>
+    <p>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+    </p>
 
-  <div class="field">
-    <%= form.label :program_id %>
-    <%= form.text_field :program_id %>
-  </div>
+    <p>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </p>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <p>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+    </p>
+
+    <p> <%= f.button "Submit"%> </p>
+  <%end%>

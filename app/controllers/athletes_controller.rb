@@ -35,6 +35,7 @@ class AthletesController < ApplicationController
         format.json { render json: @athlete.errors, status: :unprocessable_entity }
       end
     end
+    session[:athlete_id] = @athlete.id
   end
 
   # PATCH/PUT /athletes/1
@@ -69,6 +70,6 @@ class AthletesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def athlete_params
-      params.require(:athlete).permit(:name, :age, :email, :coach_id, :program_id)
+      params.require(:athlete).permit(:name, :age, :email, :password, :password_confirmation)
     end
 end
