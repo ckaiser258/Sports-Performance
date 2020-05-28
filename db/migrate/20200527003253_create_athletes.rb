@@ -4,8 +4,8 @@ class CreateAthletes < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :age
       t.string :email
-      t.belongs_to :coach, null: false, foreign_key: true
-      t.belongs_to :program, null: false, foreign_key: true
+      t.belongs_to :coach, foreign_key: true
+      t.belongs_to :program, foreign_key: true
 
       t.timestamps
     end
