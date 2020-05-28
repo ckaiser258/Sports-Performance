@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'applicants/new'
+  post 'applicants/create'
+  get "sessions/new"
+  post "sessions/create"
+  post 'sessions/destroy'
   resources :coach_sports
   resources :athlete_sports
   resources :sports

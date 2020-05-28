@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_003705) do
+ActiveRecord::Schema.define(version: 2020_05_27_213212) do
 
   create_table "athlete_sports", force: :cascade do |t|
     t.integer "athlete_id", null: false
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 2020_05_27_003705) do
     t.string "name"
     t.string "age"
     t.string "email"
-    t.integer "coach_id", null: false
-    t.integer "program_id", null: false
+    t.integer "coach_id"
+    t.integer "program_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
     t.index ["coach_id"], name: "index_athletes_on_coach_id"
     t.index ["program_id"], name: "index_athletes_on_program_id"
   end
