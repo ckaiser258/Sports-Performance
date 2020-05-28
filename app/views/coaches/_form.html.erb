@@ -10,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-  <%end%>
-
+<% end %>
+<div style="margin-left: 50px;">
 <%= form_for @coach, url: :coaches_create do |f|%>
     <p>
         <%= f.label :name %>
@@ -38,5 +38,6 @@
         <%= f.password_field :password_confirmation %>
     </p>
 
-    <p> <%= f.button "Submit"%> </p>
+    <p> <%= f.button "Create Account"%> </p>
   <%end%>
+  </div>
