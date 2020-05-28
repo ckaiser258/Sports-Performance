@@ -7,13 +7,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" type="text/css" href="./app/assets/stylesheets/applications.css"/>
+    <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/applications.css"/>
+    <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/application.css.scss"/>
   </head>
-
-      <header class="navbar navbar-fixed-top navbar-inverse">
+    
+      <nav class="navbar fixed-top navbar-light bg-light" style="background-color: black;">
+        <a class="navbar-brand" style="color: white;" href="/sessions/new">STRENGTH TRAINING</a>
         <div class="container">
-          <%= link_to "Athlete-Coach", coaches_path %>
-          <nav>
             <ul class="nav navbar-nav navbar-right">
             <%# if logged_in? %>
               <li><%= link_to "Profile", coaches_path %></li>
@@ -23,9 +23,8 @@
               <li><%= link_to "Log in", coaches_path %></li>
             <%# end %>
             </ul>
-          </nav>
         </div>
-      </header>
+      </nav>
 
   <body>
     <%= yield %>

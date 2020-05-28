@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_05_28_170007) do
 
   create_table "athlete_sports", force: :cascade do |t|
