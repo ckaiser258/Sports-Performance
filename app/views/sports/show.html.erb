@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @sport.name %>
-</p>
+<h1><%= @sport.name %></h1><br>
 
-<%= link_to 'Edit', edit_sport_path(@sport) %> |
-<%= link_to 'Back', sports_path %>
+
+  <p><strong>Athletes:</strong><br></p>
+  <% @sport.athletes.each do |athlete| %>
+  <p><%= link_to athlete.name, athlete_path(athlete) %></p>
+  <%end%>
