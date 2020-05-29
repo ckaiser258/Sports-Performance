@@ -41,6 +41,31 @@
     <%end%>
   <% end %>
 
+
+</p>
+
+<p style="margin-left: 50px;">
+  <strong>Sports: </strong><br>
+  <% @coach.sports.each do |sport| %>
+    <%= link_to sport.name, sport_path(sport) %><br>
+  <% end %>
+</p>
+
+<% #if current_user && current_user.id == params[:id].to_i && check_coach %>
+  <% #current_user.athletes.each do |athlete| %>
+    <% #athlete.name %>
+    <%# athlete.email %>
+  <%#end%>
+<% #end %>
+
+<p style="margin-left: 50px;">
+<strong>Athletes:</strong><br>
+<%@coach.athletes.each do |athlete|%>
+<%= link_to athlete.name, athlete_path(athlete)%>
+<%end%>
+</p>
+
+
   <br/>
 
   <%= link_to 'Edit Profile/Add Athlete/Create Program', edit_coach_path(@coach) %><br>
