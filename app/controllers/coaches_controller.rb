@@ -11,6 +11,7 @@ class CoachesController < ApplicationController
   # GET /coaches/1
   # GET /coaches/1.json
   def show
+    # byebug
   end
 
   # GET /coaches/new

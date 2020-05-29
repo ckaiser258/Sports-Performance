@@ -11,8 +11,9 @@
     </div>
   <% end %>
 <% end %>
+
 <div style="margin-left: 50px;">
-<%= form_for @coach, url: :coaches_create do |f|%>
+  <%= form_for @coach, url: :coaches_create do |f|%> 
     <p>
         <%= f.label :name %>
         <%= f.text_field :name %>
@@ -39,5 +40,5 @@
     </p>
 
     <p> <%= f.button "Create Account"%> </p>
-  <%end%>
-  </div>
+  <% end %>
+</div>

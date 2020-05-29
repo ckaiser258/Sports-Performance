@@ -1,6 +1,12 @@
 class SessionsController < ApplicationController
+    skip_before_action :fetch_user, only: [:new, :create]
+
     def new
         @athlete = Athlete.find_by(params[:email])
+        #what can we do with coach?
+        ##
+        # @coach = Coach.find_by(params[:email])
+        # @athlete || @coach
     end
 
     def create
@@ -9,7 +15,8 @@ class SessionsController < ApplicationController
             if @user.try(:authenticate, params[:password])
                 redirect_to coach_path(@user.id) #need to figure out how to make this redirect to a list of their athletes
             else
-                flash[:errors] = @user.errors.full_messages 
+                flash[:errors] = "incorrect user information"
+
                 redirect_to sessions_new_path
             end
         else

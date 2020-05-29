@@ -10,23 +10,19 @@
     <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/applications.css"/>
     <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/application.css.scss"/>
   </head>
-    
+  <body>
       <nav class="navbar fixed-top navbar-light bg-light" style="background-color: black;">
         <a class="navbar-brand" style="color: white;" href="/sessions/new">STRENGTH TRAINING</a>
         <div class="container">
             <ul class="nav navbar-nav navbar-right">
-            <%# if logged_in? %>
-              <li><%= link_to "Profile", coaches_path %></li>
-              <li class="divider"></li>
-              <li><%= link_to "Log out", coaches_path, method: "delete" %></li>
+            <%# if @logged_in %>
+              <li><%= link_to "Log out", logout_path %></li>
             <%# else %>
-              <li><%= link_to "Log in", coaches_path %></li>
+              <li><%= link_to "Log in", login_path %></li>
             <%# end %>
             </ul>
         </div>
       </nav>
-
-  <body>
+      </body>
     <%= yield %>
-  </body>
 </html>

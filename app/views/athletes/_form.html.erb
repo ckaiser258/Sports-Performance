@@ -10,9 +10,10 @@
       </ul>
     </div>
   <% end %>
-  <% end %>
+<% end %>
 
-<%= form_for @athlete, url: :athletes_create do |f|%>
+<div style="margin-left: 50px;">
+  <%= form_for @athlete, url: :athletes_create do |f|%>
     <p>
         <%= f.label :name %>
         <%= f.text_field :name %>
@@ -38,5 +39,11 @@
         <%= f.password_field :password_confirmation %>
     </p>
 
-    <p> <%= f.button "Submit"%> </p>
-  <%end%>
+    <p>
+        <%= f.label :sports %>
+        <%= f.collection_check_boxes :sport_ids, Sport.all, :id, :name %>
+    </p>
+
+    <p> <%= f.button "Create Account"%> </p>
+  <% end %>
+</div>
