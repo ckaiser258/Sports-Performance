@@ -1,8 +1,8 @@
-<h1 style="margin-top: 50px; margin-left: 50px; margin-bottom: 30px;">Edit Profile</h1>
+<h1 style="margin-top: 35px; margin-left: 50px; margin-bottom: 20px;">Edit Profile</h1>
 
 <%= render 'form', coach: @coach %>
 
-<div style="margin-top: 30px; margin-left: 50px;">
+<div style="margin-top: 30px; margin-left: 50px; margin-bottom: 50px;">
   <h3>Add Athlete</h3>
 
   <div class="field">
@@ -13,10 +13,10 @@
     <%end%>
   </div>
 
-  <h2><a href='/programs/new'>Create a New Program</a></h2>
+  <h3><a href='/programs/new'>Create a New Program</a></h3>
   
-  <br><%= link_to 'Back', @coach %>
-
+  <br>
+  <%= link_to 'Back', @coach %>
 </div>
 
 

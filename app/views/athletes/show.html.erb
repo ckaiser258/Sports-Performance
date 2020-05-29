@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1 style="margin-top: 50px; margin-left: 50px;"><%= @athlete.name %></h1>
+<h1 style="margin-top: 35px; margin-left: 50px; margin-bottom: 20px;"><%= @athlete.name %></h1>
 
-<div style="margin-left: 50px;">
+<div style="margin-left: 50px; margin-right: 50px; margin-bottom: 50px;">
 
   <p>
     <strong>Age:</strong>
@@ -15,18 +15,18 @@
   </p>
 
   <p>
-    <strong>Sport(s): </strong>
-    <% @athlete.sports.each do |p| %>
-      <%= p.name %><br>
-    <% end %>
-  </p>
-
-  <p>
     <strong>Coach:</strong>
     <%if @athlete.coach %>
       <%= link_to @athlete.coach.name, "/coaches/#{@athlete.coach_id}" %>
     <% else %>
       <%= "You have not been assigned a coach yet."%>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Sport(s): </strong>
+    <% @athlete.sports.each do |p| %>
+      <%= p.name %><br>
     <% end %>
   </p>
 
@@ -40,7 +40,7 @@
   </p>
 
   <br>
+  <%= link_to 'Edit Profile', edit_athlete_path(@athlete) %><br>
+  <%= link_to 'All Athletes', athletes_path %>
 
-  <%= link_to 'Edit Profile', edit_athlete_path(@athlete) %>
-  
 </div>

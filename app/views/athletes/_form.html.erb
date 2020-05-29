@@ -1,54 +1,61 @@
-<%= form_with(model: athlete, local: true) do |form| %>
-  <% if athlete.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(athlete.errors.count, "error") %> prohibited this athlete from being saved:</h2>
+<form>
+  <div class="form-row">
 
-      <ul>
-        <% athlete.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <%= form_with(model: athlete, local: true) do |form| %>
+      <% if athlete.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(athlete.errors.count, "error") %> prohibited this athlete from being saved:</h2>
+
+          <ul>
+            <% athlete.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div style="margin-left: 50px; margin-bottom: 50px;">
+      <%= form_for @athlete, url: :athletes_create do |f|%>
+    
+        <div class="form-group">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :age %><br>
+          <%= f.number_field :age %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %><br>
+          <%= f.text_field :email %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Sports You Play" %>
+          <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name) do |b| %><br>
+            <%= b.label class:"label-checkbox" do %>
+              <%=b.check_box + " " + b.text%>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %><br>
+          <%= f.password_field :password %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br>
+          <%= f.password_field :password_confirmation %>
+        </div>
+
+        <%= f.button "Submit"%>
+      <% end %>
     </div>
-  <% end %>
-<% end %>
 
-<div style="margin-left: 50px;">
-  <%= form_for @athlete, url: :athletes_create do |f|%>
-    <p>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-    </p>
+  </div>
 
-    <p>
-        <%= f.label :age %>
-        <%= f.number_field :age %>
-    </p>
-
-    <p>
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-    </p>
-
-      <p>
-        <%= f.label "Sports You Play" %><br>
-        <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name)%>
-    </p>
-
-    <p>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-    </p>
-
-    <p>
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-    </p>
-
-    <p>
-        <%= f.label :sports %>
-        <%= f.collection_check_boxes :sport_ids, Sport.all, :id, :name %>
-    </p>
-
-    <p> <%= f.button "Submit"%> </p>
-  <% end %>
-</div>
+</form>

@@ -11,7 +11,7 @@ class CoachesController < ApplicationController
   # GET /coaches/1
   # GET /coaches/1.json
   def show
-    # byebug
+    # @coach = Coach.find(params[:id])
   end
 
   # GET /coaches/new
