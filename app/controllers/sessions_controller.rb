@@ -15,15 +15,14 @@ class SessionsController < ApplicationController
             if @user.try(:authenticate, params[:password])
                 redirect_to coach_path(@user.id) #need to figure out how to make this redirect to a list of their athletes
             else
-                flash[:errors] = "incorrect user information"
-
+                flash[:errors] = "Incorrect User Information"
                 redirect_to sessions_new_path
             end
         else
             @user = Athlete.find_by(email: params[:email])
             if @user.try(:authenticate, params[:password])
-                redirect_to coach_path(@user.coach_id)
-            else flash[:errors] = @user.errors.full_messages 
+                redirect_to "/coaches/#{@user.coach_id}"
+            else flash[:errors] = "Incorrect User Information"
                 redirect_to sessions_new_path
             end
         end

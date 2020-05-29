@@ -24,6 +24,13 @@
   <% end %>
 </p>
 
+<p style="margin-left: 50px;">
+  <strong>Sports: </strong>
+  <% @coach.sports.each do |p| %>
+    <%= p.name %><br>
+  <% end %>
+</p>
+
 <% if current_user && current_user.id == params[:id].to_i && check_coach %>
   <%= current_user.athletes.each do |athlete| %>
     <%= athlete.name %>
@@ -31,8 +38,9 @@
   <%end%>
 <% end %>
 
+
+
 <br/>
 <div style="margin-left: 50px;">
-<%= link_to 'Edit', edit_coach_path(@coach) %> |
-<%= link_to 'Back', coaches_path %>
+<%= link_to 'Edit Profile/Add Athlete', edit_coach_path(@coach) %>
 </div>

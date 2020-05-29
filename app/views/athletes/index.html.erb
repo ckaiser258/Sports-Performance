@@ -21,7 +21,11 @@
         <td><%= athlete.age %></td>
         <td><%= athlete.email %></td>
         <td><%= athlete.coach_id %></td>
-        <td><%= athlete.program_id %></td>
+        <% if athlete.program%>
+         <td><%= athlete.program.title %></td>
+         <% else%>
+          <td><%= "No Program" %></td>
+        <%end%>
         <td><%= link_to 'Show', athlete %></td>
         <td><%= link_to 'Edit', edit_athlete_path(athlete) %></td>
         <td><%= link_to 'Destroy', athlete, method: :delete, data: { confirm: 'Are you sure?' } %></td>

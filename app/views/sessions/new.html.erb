@@ -13,18 +13,15 @@
   <%= text_field_tag :email %>
 
   <%= label_tag :password%>
-  <%= text_field_tag :password%>
+  <%= password_field_tag :password%>
 
   <%= collection_select :session, :a_c, ['athlete', 'coach'], :to_s, :to_s%>
 
   <%= submit_tag "log in" %><br><br>
 
   <h1>Sign Up</h1><br>
-  <a href="/coaches/new" class="btn btn-info btn-sm active" role="button" aria-pressed="true">COACH Sign Up</a>
-  <a href="/athletes/new" class="btn btn-info btn-sm active" role="button" aria-pressed="true">ATHLETE Sign Up</a>
-
-  <%#= link_to(controller: 'athletes', action: 'new') {'Athlete sign up'} %>
-  <%#= link_to(controller: 'coaches', action: 'new') {'Coach sign up'} %>
+  <a href="/coaches/new" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Coach Sign Up</a>
+  <a href="/athletes/new" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Athlete Sign Up</a>
 </div>
 
 

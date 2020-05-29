@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>ATHLETE</h1>
+
 <p>
   <strong>Name:</strong>
   <%= @athlete.name %>
@@ -16,14 +18,28 @@
 </p>
 
 <p>
+  <strong>Sport(s): </strong>
+  <% @athlete.sports.each do |p| %>
+    <%= p.name %><br>
+  <% end %>
+</p>
+
+<p>
   <strong>Coach:</strong>
-  <%= @athlete.coach_id %>
+  <%if @athlete.coach%>
+  <%= @athlete.coach.name %>
+  <%else%>
+  <%= "You have not been assigned a coach yet."%>
+  <%end%>
 </p>
 
 <p>
   <strong>Program:</strong>
-  <%= @athlete.program_id %>
+  <%if @athlete.program%>
+  <%= @athlete.program.title %>
+  <%else%>
+  <%= "You do not have any programs."%>
+  <%end%>
 </p>
 
-<%= link_to 'Edit', edit_athlete_path(@athlete) %> |
-<%= link_to 'Back', athletes_path %>
+<%= link_to 'Edit Profile', edit_athlete_path(@athlete) %>
