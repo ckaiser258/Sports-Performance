@@ -22,6 +22,7 @@
   <br/>
 
   <%= link_to 'Edit', edit_program_path(@program) %> |
-  <%= link_to 'Back', coach_path(@program.coach_id) %>
+  <%= link_to 'Back', coach_path(@program.coach_id) %><br>
+  <%= link_to 'Destroy', @program, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 </div>

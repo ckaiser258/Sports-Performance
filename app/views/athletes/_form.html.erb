@@ -30,8 +30,12 @@
     </p>
 
       <p>
-        <%= f.label "Sports You Play" %><br>
-        <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name)%>
+        <%= f.label "Sports You Play" %>
+        <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name) do |b| %><br>
+            <%= b.label class:"label-checkbox" do %>
+              <%=b.check_box + " " + b.text%>
+            <% end %>
+          <% end %>
     </p>
 
     <p>

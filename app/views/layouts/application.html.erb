@@ -11,15 +11,17 @@
     <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/application.css.scss"/>
   </head>
   <body>
-      <nav class="navbar fixed-top navbar-light bg-light" style="background-color: black;">
-        <a class="navbar-brand" style="color: white;" href="/sessions/new">SPORTS PERFORMANCE</a>
+    <nav class="navbar navbar-inverse navbar-static-top fixed-top navbar-light bg-light" style="background-color: dark-gray; padding: 0 15px; height: 60px;">
+        <a class="navbar-brand" style="color: orange; padding-top: 20px;" href="/sessions/new">SPORTS PERFORMANCE</a>
         <div class="container">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" style="padding-top: 5px;">
             <%# if @logged_in %>
               <li><%= link_to "Log out", logout_path %></li>
             <%# else %>
               <li><%= link_to "Log in", login_path %></li>
             <%# end %>
+            <li><%= link_to "About", login_path %></li>
+            <li><%= link_to "Contact Us", login_path %></li>
             </ul>
         </div>
       </nav>

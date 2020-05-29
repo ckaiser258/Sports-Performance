@@ -1,6 +1,44 @@
 <h1 style="margin-top: 50px; margin-left: 50px; margin-bottom: 30px;">Edit Profile</h1>
 
-<%= render 'form', coach: @coach %>
+<div style="margin-left: 50px;">
+  <%= form_for @coach, url: "/coaches/#{@coach.id}", method: "patch" do |f|%> 
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </p>
+
+    <p>
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+    </p>
+
+    <p>
+        <%= f.label :bio %><br>
+        <%= f.text_area :bio %>
+    </p>
+
+    <p>
+        <%= f.label "Sports You Specialize In:" %>
+        <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name, include_hidden: false) do |b| %><br>
+            <%= b.label class:"label-checkbox" do %>
+              <%=b.check_box + " " + b.text%>
+            <% end %>
+          <% end %>
+    </p>
+
+    <p>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+    </p>
+
+    <p>
+        <%= f.label :password_confirmation %><br>
+        <%= f.password_field :password_confirmation %>
+    </p>
+
+    <p> <%= f.button "Submit" %> </p>
+  <% end %>
+</div>
 
 <div style="margin-top: 30px; margin-left: 50px;">
   <h3>Add Athlete</h3>

@@ -13,7 +13,7 @@
 <% end %>
 
 <div style="margin-left: 50px;">
-  <%= form_for @coach, url: "/coaches/#{@coach.id}", method: "patch" do |f|%> 
+  <%= form_for @coach, url: :coaches_create do |f|%> 
     <p>
         <%= f.label :name %><br>
         <%= f.text_field :name %>
@@ -30,13 +30,17 @@
     </p>
 
     <p>
-        <%= f.label "Sports You Specialize In:" %><br>
-        <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name, include_hidden: false)%>
+        <%= f.label "Sports You Specialize In:" %>
+        <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name, include_hidden: false) do |b| %><br>
+            <%= b.label class:"label-checkbox" do %>
+              <%=b.check_box + " " + b.text%>
+            <% end %>
+          <% end %>
     </p>
 
     <p>
         <%= f.label :password %><br>
-        <%= f.password_field :password %>
+        <%= f.password_field :password %> 
     </p>
 
     <p>

@@ -56,7 +56,7 @@ class ProgramsController < ApplicationController
   def destroy
     @program.destroy
     respond_to do |format|
-      format.html { redirect_to programs_url, notice: 'Program was successfully destroyed.' }
+      format.html { redirect_to coach_path(@program.coach_id), notice: 'Program was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
