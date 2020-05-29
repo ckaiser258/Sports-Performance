@@ -20,31 +20,7 @@
     <% end %>
   </p>
 
-  <p>
-    <strong>Sports: </strong>
-      <% @coach.sports.each do |p| %>
-        <%= p.name %><br>
-      <% end %>
-  </p>
-
-  <p>
-    <strong>Athletes: </strong>
-      <% @coach.athletes.each do |a| %>
-        <%= link_to a.name, athlete_path(a) %><br>
-      <% end %>
-  </p>
-
-  <% if current_user && current_user.id == params[:id].to_i && check_coach %>
-    <%= current_user.athletes.each do |athlete| %>
-      <%= athlete.name %>
-      <%= athlete.email %>
-    <%end%>
-  <% end %>
-
-
-</p>
-
-<p style="margin-left: 50px;">
+<p>
   <strong>Sports: </strong><br>
   <% @coach.sports.each do |sport| %>
     <%= link_to sport.name, sport_path(sport) %><br>
@@ -58,17 +34,21 @@
   <%#end%>
 <% #end %>
 
-<p style="margin-left: 50px;">
+<p>
 <strong>Athletes:</strong><br>
+
 <%@coach.athletes.each do |athlete|%>
-<%= link_to athlete.name, athlete_path(athlete)%>
+  <%= athlete.name%>
+<%end%>
+<%@coach.athletes.each do |athlete|%>
+  <%= link_to athlete.name, athlete_path(athlete)%>
 <%end%>
 </p>
 
 
   <br/>
 
-  <%= link_to 'Edit Profile/Add Athlete/Create Program', edit_coach_path(@coach) %><br>
-  <%= link_to 'Back', '/sessions/new' %>
+  <p><%= link_to 'Edit Profile/Add Athlete/Create Program', edit_coach_path(@coach) %></p><br>
+  <p><%= link_to 'Back', '/sessions/new' %></p>
 
 </div>

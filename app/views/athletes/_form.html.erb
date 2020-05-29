@@ -15,17 +15,17 @@
 <div style="margin-left: 50px;">
   <%= form_for @athlete, url: :athletes_create do |f|%>
     <p>
-        <%= f.label :name %>
+        <%= f.label :name %><br>
         <%= f.text_field :name %>
     </p>
 
     <p>
-        <%= f.label :age %>
+        <%= f.label :age %><br>
         <%= f.number_field :age %>
     </p>
 
     <p>
-        <%= f.label :email %>
+        <%= f.label :email %><br>
         <%= f.text_field :email %>
     </p>
 
@@ -35,18 +35,13 @@
     </p>
 
     <p>
-        <%= f.label :password %>
+        <%= f.label :password %><br>
         <%= f.password_field :password %>
     </p>
 
     <p>
-        <%= f.label :password_confirmation %>
+        <%= f.label :password_confirmation %><br>
         <%= f.password_field :password_confirmation %>
-    </p>
-
-    <p>
-        <%= f.label :sports %>
-        <%= f.collection_check_boxes :sport_ids, Sport.all, :id, :name %>
     </p>
 
     <p> <%= f.button "Submit"%> </p>
