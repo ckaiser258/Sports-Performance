@@ -1,7 +1,16 @@
-<h1>Editing Coach</h1>
+<h1>Edit Profile</h1>
 
 <%= render 'form', coach: @coach %>
 
 <h2>Add Athlete</h2>
+
+  <div class="field">
+  <%= form_for @coach, url: :coaches_create do |f|%>
+    <%= f.label :athlete %>
+    <%= collection_select(:coach, :athlete_ids, Athlete.all, :id, :name) %>
+    <%= f.button "Add"%>
+    <%end%>
+  </div>
+
 
 <%= link_to 'Back', @coach %>

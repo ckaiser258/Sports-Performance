@@ -26,12 +26,20 @@
 
 <p>
   <strong>Coach:</strong>
+  <%if @athlete.coach%>
   <%= @athlete.coach.name %>
+  <%else%>
+  <%= "You have not been assigned a coach yet."%>
+  <%end%>
 </p>
 
 <p>
   <strong>Program:</strong>
+  <%if @athlete.program%>
   <%= @athlete.program.title %>
+  <%else%>
+  <%= "You do not have any programs."%>
+  <%end%>
 </p>
 
 <%= link_to 'Edit Profile', edit_athlete_path(@athlete) %>
