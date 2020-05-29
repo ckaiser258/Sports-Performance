@@ -35,17 +35,16 @@
     <% end %>
   </p>
 
-  <% if current_user && current_user.id == params[:id].to_i && check_coach %>
-    <%= current_user.athletes.each do |athlete| %>
-      <%= athlete.name %>
-      <%= athlete.email %>
-    <%end%>
-  <% end %>
+  <%# if current_user && current_user.id == params[:id].to_i && check_coach %>
+    <%#= current_user.athletes.each do |athlete| %>
+      <%#= athlete.name %>
+      <%#= athlete.email %>
+    <%# end %>
+  <%# end %>
 
   <br/>
 
-  <%= link_to 'Edit Profile / Add Athlete / Create Program', edit_coach_path(@coach) %><br>
-  <%= link_to 'All Coaches', coaches_path %><br>
+  <%= link_to 'Edit Profile / Add Athlete / Create Program', edit_coach_path(@coach) %><br><br>
   <%= link_to 'Homepage', '/sessions/new' %>
 
 </div>
