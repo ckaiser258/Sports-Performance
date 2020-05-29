@@ -29,6 +29,11 @@
     </p>
 
     <p>
+        <%= f.label "Sports You Specialize In" %><br>
+        <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name, include_hidden: false)%>
+    </p>
+
+    <p>
         <%= f.label :password %>
         <%= f.password_field :password %>
     </p>
