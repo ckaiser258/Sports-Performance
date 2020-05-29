@@ -1,45 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>ATHLETE</h1>
+<h1 style="margin-left: 50px;"> <%= @athlete.name %></h1><br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @athlete.name %>
-</p>
-
-<p>
+<p style="margin-left: 50px;">
   <strong>Age:</strong>
   <%= @athlete.age %>
 </p>
 
-<p>
+<p style="margin-left: 50px;">
   <strong>Email:</strong>
   <%= @athlete.email %>
 </p>
 
-<p>
+<p style="margin-left: 50px;">
   <strong>Sport(s): </strong>
   <% @athlete.sports.each do |p| %>
     <%= p.name %><br>
   <% end %>
 </p>
 
-<p>
+<p style="margin-left: 50px;">
   <strong>Coach:</strong>
   <%if @athlete.coach%>
-  <%= @athlete.coach.name %>
+  <%= link_to @athlete.coach.name, "/coaches/#{@athlete.coach_id}" %>
   <%else%>
   <%= "You have not been assigned a coach yet."%>
   <%end%>
 </p>
 
-<p>
+<p style="margin-left: 50px;">
   <strong>Program:</strong>
   <%if @athlete.program%>
-  <%= @athlete.program.title %>
+  <%= link_to @athlete.program.title, "/programs/#{@athlete.program_id}" %>
   <%else%>
   <%= "You do not have any programs."%>
   <%end%>
 </p>
-
+<p style="margin-left: 50px;">
 <%= link_to 'Edit Profile', edit_athlete_path(@athlete) %>
+</p>

@@ -29,7 +29,7 @@
     </p>
 
       <p>
-        <%= f.label "Sports You Specialize In" %><br>
+        <%= f.label "Sports You Play" %><br>
         <%= f.collection_check_boxes(:sport_ids, Sport.all, :id, :name)%>
     </p>
 
