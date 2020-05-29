@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 # before_action :fetch_user
 before_action :current_user
-helper_method :current_user
+helper_method :current_user, :logged_in?
 
     # def fetch_user     
     #   @logged_in = logged_in?
@@ -15,7 +15,8 @@ helper_method :current_user
     end
 
     def logged_in?
-        current_user.id != nil
+        !!current_user
+        # byebug
     end
 
     def require_login
