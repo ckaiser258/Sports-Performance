@@ -30,7 +30,7 @@
   <p>
     <strong>Athletes: </strong>
       <% @coach.athletes.each do |a| %>
-        <%= a.name %><br>
+        <%= link_to a.name, athlete_path(a) %><br>
       <% end %>
   </p>
 

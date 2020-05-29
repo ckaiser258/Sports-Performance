@@ -2,7 +2,7 @@
 
 <h1 style="margin-top: 50px; margin-left: 50px;"><%= @athlete.name %></h1>
 
-<div style="margin-top: 30px; margin-left: 50px;">
+<div style="margin-left: 50px;">
 
   <p>
     <strong>Age:</strong>
@@ -24,7 +24,7 @@
   <p>
     <strong>Coach:</strong>
     <%if @athlete.coach %>
-      <%= @athlete.coach.name %>
+      <%= link_to @athlete.coach.name, "/coaches/#{@athlete.coach_id}" %>
     <% else %>
       <%= "You have not been assigned a coach yet."%>
     <% end %>
