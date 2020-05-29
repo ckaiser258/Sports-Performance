@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :fetch_user, only: [:new, :create]
+    # skip_before_action :fetch_user, only: [:new, :create]
 
     def new
         @athlete = Athlete.find_by(params[:email])

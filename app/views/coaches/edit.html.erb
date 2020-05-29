@@ -1,8 +1,9 @@
-<h1>Edit Profile</h1>
+<h1 style="margin-top: 50px; margin-left: 50px; margin-bottom: 30px;">Edit Profile</h1>
 
 <%= render 'form', coach: @coach %>
 
-<h2>Add Athlete</h2>
+<div style="margin-top: 30px; margin-left: 50px;">
+  <h3>Add Athlete</h3>
 
   <div class="field">
   <%= form_for @coach, url: :coaches_create do |f|%>
@@ -12,5 +13,6 @@
     <%end%>
   </div>
 
+  <br><%= link_to 'Back', @coach %>
 
-<%= link_to 'Back', @coach %>
+</div>

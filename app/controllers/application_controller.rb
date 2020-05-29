@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
-before_action :fetch_user
+# before_action :fetch_user
 before_action :current_user
 helper_method :current_user
 
-    def fetch_user     
-      @logged_in = logged_in?
-      if logged_in? 
-        @user = User.find(current_user_id)  
-      end
-    end 
+    # def fetch_user     
+    #   @logged_in = logged_in?
+    #   if logged_in? 
+    #     @user = User.find(current_user_id)  
+    #   end
+    # end 
 
     def current_user
         @user = (Athlete.find_by(id: session[:athlete_id])) || (Coach.find_by(id: session[:coach_id]))

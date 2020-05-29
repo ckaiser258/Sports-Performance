@@ -1,46 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<h1 style="margin-top: 50px; margin-left: 50px;">COACH</h1>
+<h1 style="margin-top: 50px; margin-left: 50px;"><%= @coach.name %></h1>
 
-<p style="margin-left: 50px;">
-  <strong>Name:</strong>
-  <%= @coach.name %>
-</p>
+<div style="margin-left: 50px; margin-right: 50px;">
+  <p>
+    <strong>Bio: </strong>
+    <%= @coach.bio %>
+  </p>
 
-<p style="margin-left: 50px; margin-right: 50px;">
-  <strong>Bio: </strong>
-  <%= @coach.bio %>
-</p>
+  <p>
+    <strong>Email: </strong>
+    <%= mail_to @coach.email %>
+  </p>
 
-<p style="margin-left: 50px;">
-  <strong>Email: </strong>
-  <%= mail_to @coach.email %>
-</p>
+  <p>
+    <strong>Programs: </strong>
+    <% @coach.programs.each do |p| %>
+      <%= link_to p.title, program_path(p) %><br>
+    <% end %>
+  </p>
 
-<p style="margin-left: 50px;">
-  <strong>Programs: </strong>
-  <% @coach.programs.each do |p| %>
-    <%= link_to p.title, program_path(p) %><br>
+  <p>
+    <strong>Sports: </strong>
+      <% @coach.sports.each do |p| %>
+        <%= p.name %><br>
+      <% end %>
+  </p>
+
+  <p>
+    <strong>Athletes: </strong>
+      <% @coach.athletes.each do |a| %>
+        <%= a.name %><br>
+      <% end %>
+  </p>
+
+  <% if current_user && current_user.id == params[:id].to_i && check_coach %>
+    <%= current_user.athletes.each do |athlete| %>
+      <%= athlete.name %>
+      <%= athlete.email %>
+    <%end%>
   <% end %>
-</p>
 
-<p style="margin-left: 50px;">
-  <strong>Sports: </strong>
-  <% @coach.sports.each do |p| %>
-    <%= p.name %><br>
-  <% end %>
-</p>
+  <br/>
 
-<% if current_user && current_user.id == params[:id].to_i && check_coach %>
-  <%= current_user.athletes.each do |athlete| %>
-    <%= athlete.name %>
-    <%= athlete.email %>
-  <%end%>
-<% end %>
+  <%= link_to 'Edit Profile/Add Athlete', edit_coach_path(@coach) %><br>
+  <%= link_to 'Back', '/sessions/new' %>
 
-
-
-<br/>
-<div style="margin-left: 50px;">
-<%= link_to 'Edit Profile/Add Athlete', edit_coach_path(@coach) %>
 </div>

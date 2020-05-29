@@ -11,27 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <div style="margin-left: 50px;">
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price %>
+    </div>
 
-  <div class="field">
-    <%= form.label :coach_id %>
-    <%= collection_select(:program, :coach_id, Coach.all, :id, :name) %>
-  </div>
+    <div class="field">
+      <%= form.label :coach_id %>
+      <%= collection_select(:program, :coach_id, Coach.all, :id, :name) %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+
   </div>
+  
 <% end %>

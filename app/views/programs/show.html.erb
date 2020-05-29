@@ -1,24 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @program.title %>
-</p>
+<h1 style="margin-top: 50px; margin-left: 50px;">PROGRAM</h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @program.description %>
-</p>
+<div style="margin-left: 50px; margin-right: 50px;">
 
-<p>
-  <strong>Price:</strong>
-  $<%= @program.price %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @program.title %>
+  </p>
 
-<p>
-  <strong>Coach:</strong>
-  <%= @program.coach.name %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @program.description %>
+  </p>
 
-<%= link_to 'Edit', edit_program_path(@program) %> |
-<%= link_to 'Back', coach_path(@program.coach_id) %>
+  <p>
+    <strong>Price:</strong>
+    $<%= @program.price %>
+  </p>
+
+  <p>
+    <strong>Coach:</strong>
+    <%= @program.coach.name %>
+  </p>
+
+  <br/>
+
+  <%= link_to 'Edit', edit_program_path(@program) %> |
+  <%= link_to 'Back', coach_path(@program.coach_id) %>
+
+</div>
