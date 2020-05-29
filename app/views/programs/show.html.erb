@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1 style="margin-top: 50px; margin-left: 50px;">PROGRAM</h1>
+<h1 style="margin-top: 50px; margin-left: 50px;"><%= @program.title%></h1>
 
 <div style="margin-left: 50px; margin-right: 50px;">
-
-  <p>
-    <strong>Title:</strong>
-    <%= @program.title %>
-  </p>
 
   <p>
     <strong>Description:</strong>
@@ -21,7 +16,7 @@
 
   <p>
     <strong>Coach:</strong>
-    <%= @program.coach.name %>
+    <%= link_to @program.coach.name, coach_path(@program.coach_id) %>
   </p>
 
   <br/>
