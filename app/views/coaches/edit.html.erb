@@ -6,10 +6,11 @@
   <h3>Add Athlete</h3>
 
   <div class="field">
-  <%= form_for @coach, url: :coaches_create do |f|%>
-    <%= f.label :athlete %>
+  <%= form_tag('/add_athlete', method: :patch) do %>
+    <%= label_tag :athlete %>
     <%= collection_select(:coach, :athlete_ids, Athlete.all, :id, :name) %>
-    <%= f.button "Add"%>
+    <%= submit_tag "Add"%>
+    <%= hidden_field_tag :coach_id, @coach.id%>
     <%end%>
   </div>
 

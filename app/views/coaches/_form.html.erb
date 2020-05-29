@@ -13,7 +13,7 @@
 <% end %>
 
 <div style="margin-left: 50px;">
-  <%= form_for @coach, url: :coaches_create do |f|%> 
+  <%= form_for @coach, url: "/coaches/#{@coach.id}", method: "patch" do |f|%> 
     <p>
         <%= f.label :name %><br>
         <%= f.text_field :name %>

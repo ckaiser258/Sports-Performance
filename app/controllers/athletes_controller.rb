@@ -62,6 +62,13 @@ class AthletesController < ApplicationController
     end
   end
 
+  def add_athlete
+    @athlete = Athlete.find(params[:coach][:athlete_ids])
+    @athlete.coach_id = params[:coach_id]
+    @athlete.save!
+    redirect_to coach_path(@athlete.coach_id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_athlete

@@ -44,15 +44,18 @@ class CoachesController < ApplicationController
   # PATCH/PUT /coaches/1
   # PATCH/PUT /coaches/1.json
   def update
-    respond_to do |format|
-      if @coach.update(coach_params)
-        format.html { redirect_to @coach, notice: 'Coach was successfully updated.' }
-        format.json { render :show, status: :ok, location: @coach }
-      else
-        format.html { render :edit }
-        format.json { render json: @coach.errors, status: :unprocessable_entity }
+    @coach = Coach.find(params[:id])
+    @coach.update(coach_params)
+    # delete old coachsport objects
+    @coach.coach_sports.destroy_all
+    if params[:coach][:sport_ids] != nil
+      params[:coach][:sport_ids].each do |s_id|
+        if s_id != ''
+          CoachSport.create(coach_id: @coach.id, sport_id: s_id.to_i )
+        end
       end
     end
+    redirect_to @coach
   end
 
   # DELETE /coaches/1

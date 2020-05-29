@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "sessions/new"
   post "sessions/create"
   post 'sessions/destroy'
+  patch '/add_athlete', to: 'athletes#add_athlete'
   resources :coach_sports
   resources :athlete_sports
   resources :sports
