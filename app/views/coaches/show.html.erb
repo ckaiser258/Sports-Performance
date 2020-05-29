@@ -14,7 +14,7 @@
   </p>
 
   <p>
-    <strong>Programs: </strong>
+    <strong>Programs: </strong><br>
     <% @coach.programs.each do |p| %>
       <%= link_to p.title, program_path(p) %><br>
     <% end %>
@@ -37,9 +37,6 @@
 <p>
 <strong>Athletes:</strong><br>
 
-<%@coach.athletes.each do |athlete|%>
-  <%= athlete.name%>
-<%end%>
 <%@coach.athletes.each do |athlete|%>
   <%= link_to athlete.name, athlete_path(athlete)%>
 <%end%>

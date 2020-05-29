@@ -33,7 +33,7 @@
   <p>
     <strong>Program:</strong>
     <%if @athlete.program %>
-      <%= @athlete.program.title %>
+      <%= link_to @athlete.program.title, program_path(@athlete.program) %>
     <% else %>
       <%= "You do not have any programs."%>
     <% end %>
