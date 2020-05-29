@@ -1,6 +1,22 @@
-<h1>Editing Coach</h1>
+<h1 style="margin-top: 35px; margin-left: 50px; margin-bottom: 20px;">Edit Profile</h1>
 
 <%= render 'form', coach: @coach %>
 
-<%= link_to 'Show', @coach %> |
-<%= link_to 'Back', coaches_path %>
+<div style="margin-top: 30px; margin-left: 50px; margin-bottom: 50px;">
+  <h3>Add Athlete</h3>
+
+  <div class="field">
+  <%= form_for @coach, url: :coaches_create do |f|%>
+    <%= f.label :athlete %>
+    <%= collection_select(:coach, :athlete_ids, Athlete.all, :id, :name) %>
+    <%= f.button "Add"%>
+    <%end%>
+  </div>
+
+  <h3><a href='/programs/new'>Create a New Program</a></h3>
+  
+  <br>
+  <%= link_to 'Back', @coach %>
+</div>
+
+

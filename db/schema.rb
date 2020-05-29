@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_170007) do
     t.string "name"
     t.string "age"
     t.string "email"
-    t.integer "coach_id"
-    t.integer "program_id"
+    t.integer "coach_id", null: false
+    t.integer "program_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"

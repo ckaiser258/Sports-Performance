@@ -1,19 +1,31 @@
-<h1>Sign Up or Login</h1>
+<div class="jumbotron" style=" margin-top: 20px; background-color: light-gray;>
+<div class="container-fluid">
+<div style="margin-left: 100px; margin-bottom: 150px; margin-top: 80px;">
+  <h1 style="font-size:50px;">Login</h1><br>
 
-<%if flash[:login_error] %>
-    <p><%= flash[:login_error] %> </p>
-<%end%>
+  <% if flash[:login_error] %>
+    <p><%= flash[:login_error] %></p>
+  <% end %>
 
-<%= form_tag action: "create", method: :post %>
-<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-<%= label_tag :email %>
-<%= text_field_tag :email %>
 
-<%= label_tag :password%>
-<%= text_field_tag :password%>
+  <%= form_tag action: "create", method: :post %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
 
-<%= collection_select :session, :a_c, ['athlete', 'coach'], :to_s, :to_s%>
+  <%= label_tag :password%>
+  <%= password_field_tag :password%>
 
-<%= submit_tag "log in" %><br>
-Or <%= link_to(controller: 'athletes', action: 'new') {'Athlete sign up'} %>
-<%= link_to(controller: 'coaches', action: 'new') {'Coach sign up'} %>
+  <%= collection_select :session, :a_c, ['athlete', 'coach'], :to_s, :to_s%>
+
+  <%= submit_tag "log in" %><br><br><br>
+
+  <h1 style="font-size:50px;">Sign Up</h1><br>
+  <a href="/coaches/new" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Coach Sign Up</a>
+  <a href="/athletes/new" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Athlete Sign Up</a>
+</div>
+
+  </div>
+</div>
+
+

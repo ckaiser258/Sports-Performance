@@ -1,26 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @coach.name %>
-</p>
+<h1 style="margin-top: 35px; margin-left: 50px; margin-bottom: 20px;"><%= @coach.name %></h1>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @coach.bio %>
-</p>
+<div style="margin-left: 50px; margin-right: 50px; margin-bottom: 50px;">
 
-<p>
-  <strong>Email:</strong>
-  <%= @coach.email %>
-</p>
+  <p>
+    <strong>Bio: </strong>
+    <%= @coach.bio %>
+  </p>
 
-<% if current_user && current_user.id == params[:id].to_i && check_coach %>
-<%= current_user.athletes.each do |athlete| %>
-  <%= athlete.name %>
-  <%= athlete.email %>
-  <%end%>
-<% end %>
+  <p>
+    <strong>Email: </strong>
+    <%= mail_to @coach.email %>
+  </p>
 
-<%= link_to 'Edit', edit_coach_path(@coach) %> |
-<%= link_to 'Back', coaches_path %>
+  <p>
+    <strong>Program(s): </strong>
+    <% @coach.programs.each do |p| %>
+      <%= link_to p.title, program_path(p) %><br>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Sport(s): </strong>
+    <% @coach.sports.each do |p| %>
+      <%= p.name %><br>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Athlete(s): </strong>
+    <% @coach.athletes.each do |athlete| %>
+      <%= link_to athlete.name, athlete_path(athlete) %><br>
+    <% end %>
+  </p>
+
+  <%# if current_user && current_user.id == params[:id].to_i && check_coach %>
+    <%#= current_user.athletes.each do |athlete| %>
+      <%#= athlete.name %>
+      <%#= athlete.email %>
+    <%# end %>
+  <%# end %>
+
+  <br/>
+
+  <%= link_to 'Edit Profile / Add Athlete / Create Program', edit_coach_path(@coach) %><br><br>
+  <%= link_to 'Homepage', '/sessions/new' %>
+
+</div>
